@@ -1,0 +1,18 @@
+
+$(function(){
+
+	$('.menuCount').change(function(){
+		colsole.log("a");
+//		var total=$('#price1').val()*$(this);
+//		$('#total').append(total);
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+});

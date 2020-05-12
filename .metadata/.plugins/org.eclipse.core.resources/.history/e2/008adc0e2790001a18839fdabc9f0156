@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+$(function(){
+	
+	$("#home").mouseenter(
+			function(){
+		$(this).addClass('.img')
+	});
+});

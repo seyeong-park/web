@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 변수와 범위</title>
+	<script>
+	//글로벌 변수와 지역변수
+	//var 선언하지 않으면 글로벌변수가 된다.
+// 	var scope='글로벌변수';
+// 	function getValue(){
+// 		document.write('0>'+scope+"<br/>");//undefined
+// 		var scope='지역변수';
+// 		return scope;
+// 	}
+// 	document.write('1>'+getValue()+"<br/>");
+// 	document.write('2>'+scope+"<br/>");
+
+	//지역변수
+	if(true){
+		var i=100; //글로벌변수, 함수 안에 선언했을 때 지역변수
+	}
+	document.write('i='+i+"<br/>");
+	
+	for (var j = 0; j < 3; i++) {}
+	for (var j = 0; j < 3; i++) {}
+	
+	//var는 중복선언 가능
+	var j=1;
+	var j=2;
+	
+	
+	// let j=1;
+	// let j=2;
+	
+	
+	document.write('j='+j+"<br/>");
+	</script>
+</head>
+
+<body>
+
+  
+ </body>
+</html>

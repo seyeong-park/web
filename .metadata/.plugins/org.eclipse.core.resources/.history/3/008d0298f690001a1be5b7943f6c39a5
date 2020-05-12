@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+
+$(function(){
+	$('a[rel="prettyPopin"]:eq(0)').prettyPopin()
+	
+});

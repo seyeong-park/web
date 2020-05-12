@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> RegExp 객체</title>
+<script type="text/javascript">
+var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]*)?/gi;
+// var p = /http(s)?:\/\/([\w]+\.)+[\w]+(\/[\w.\/?%&=]*)?/gi;     - url에 하이픈(-) 없이
+//var p = new RegExp('http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?','gi');
+var str = '한 번을 둘러봐야 하는 사이트 http://www.w3schools.com/ 입니다';
+str += ' 또한 집중적으로 봐야하는 사이트 http://jqapi.ru/ 입니다';
+
+var result = str.match(p); //원하는 부분 찾아낼 때
+for(var i=0;i<result.length;i++){
+	document.write(result[i]+"<br/>");
+}
+
+// 매치 성공여부 검증 
+var one = '한 번을 둘러봐야 하는 사이트 http://www.w3schools.com/ 입니다';
+var two= '또한 집중적으로 봐야하는 사이트 http://jqapi.ru/ 입니다';
+
+//정규표현식(p)맞는지 확인  <한 번만 test>
+document.write(p.test(two)+"<br/>");
+document.write(p.test(one)+"<br/>");
+
+//인덱스 17,18번째 검색
+document.write(one.search(p)+"<br/>");
+document.write(two.search(p)+"<br/>");
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+<!--  참고 https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/%EC%A0%95%EA%B7%9C%EC%8B%9D -->

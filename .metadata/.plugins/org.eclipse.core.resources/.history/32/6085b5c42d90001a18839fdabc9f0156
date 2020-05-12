@@ -1,0 +1,9 @@
+
+$(function(){
+
+$('#p').click(function(){
+		$('#txt').css("font-size","+=2");
+		
+		
+	});
+});

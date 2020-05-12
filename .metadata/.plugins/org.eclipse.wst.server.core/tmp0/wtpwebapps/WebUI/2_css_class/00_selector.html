@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 연습</title>
+
+<style type="text/css">
+	/*가중치에 따른 우선순위*/
+	/*클래스 찾을때 .클래스이름 / 아이디 찾을때 # */
+	
+	#point100 {color: blue;}	/*우선순위 :100*/
+	.point10 {color: cyan;}	/*우선순위 :10*/
+	
+	div{color : #ffaa11;}	/*1*/
+	div{color : green}	/*1*/
+	
+	div#point100 {color : yellow;} /*명확하게 찾을 때1+100*/
+	
+	body div#point100 {color:gray};	/*1+1+100*/
+	
+	/*2. 속성값 선택*/
+	input[type=text] {border:2px solid #456721;}
+	
+	/*
+	- input 요소의 첫번째 요소 테두리 변경
+	- input 요소의 마지막 요소 테두리 변경
+	- input 요소의 5번째 요소 테두리 변경
+	- input 요소의 뒤에서 두번번째 요소 테두리 변경
+	*/
+	
+	input:first-of-type {border:2px dashed red;}
+	input:last-of-type {border:2px dashed yellow;}
+	input:nth-of-type(5) {border:2px dashed cyan;}
+	input:nth-of-last-type(2) {border:2px dashed black;}
+</style>
+</head>
+<body>
+	
+	<div id="point100" class="point10">안녕하세요</div>
+	
+	
+	<p>
+		<input type="text" value="입력1">
+		<input type="checkbox"> 선택
+		<input type="radio" name="rd"  checked="checked"> 예
+		<input type="radio" name="rd"> 아니오
+		<input type="text" value="입력2" disabled="disabled">		
+		<input type="button" value="확인">
+		<input type="button" value="취소">
+	</p>
+	
+	
+</body>
+</html>

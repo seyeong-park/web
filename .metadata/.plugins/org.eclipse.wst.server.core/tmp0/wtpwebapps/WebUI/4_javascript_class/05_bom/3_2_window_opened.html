@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 새로 열려진 창 </title>
+<script type="text/javascript">
+	<!--
+	window.onload=function(){
+		var site = document.frm.site;
+		for (var i = 0; i < site.length; i++) {
+			site[i].onclick=function(){
+		switch(this.value){
+		//opener:현재 창 말고 나를 열어준 페이지에서 창 열기 
+		case '0': opener.window.location.href='http://www.daum.net'; break;
+		case '1': break;
+		case '2': break;
+		}		
+			}
+		}
+	}
+	//-->
+</script>
+</head>
+<body>
+	<form name="frm">
+		<input type="radio" name="site" value='http://www.daum.net' > 다음 <br>
+		<input type="radio" name="site" value='1' > 네이버 <br>
+		<input type="radio" name="site" value='2'> 네이트 <br>
+	</form>
+</body>
+</html>

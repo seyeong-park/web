@@ -1,0 +1,13 @@
+
+$(function(){
+
+$('#p').click(function(){
+		$('#txt').css("font-size","+=2");	
+	});
+
+$('#m').click(function(){
+	$('#txt').css("font-size","-=2");	
+});
+
+
+});

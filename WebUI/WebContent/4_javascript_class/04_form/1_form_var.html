@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript">
+
+window.onload=function(){
+
+	document.getElementById('btn').onclick=function(){
+		/*document.myForm.txt0.value='데이터';
+		myForm.txt1.value="데이터2";//document 생략가능
+//권장x 	document.forms[0].txt2.value='data3'; 
+		document.myForm['txt3'].value='data4'*/
+		
+		//각 inpit 태그에 "데이터"라는 값 지정
+		for (var i = 0; i < myForm.length; i++) {
+			document.myForm['txt'+i].value='data'+i; //document생략가능
+		}
+	
+	}
+ }
+
+</script>
+</head>
+<body>
+	<form name='myForm'>
+		첫번째 :  <input type='text' name='txt0'><br/>
+		두번째 :  <input type='text' name='txt1'><br/>
+		세번째 :  <input type='text' name='txt2'><br/>
+		네번째 :  <input type='text' name='txt3'><br/>
+		<input type='button' value='값지정'  id='btn'>
+	</form>
+</body>
+</html>

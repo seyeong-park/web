@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import='temp.*' %> <!-- temp패키지 연결 -->
+    
+    <!-- 1.폼의 입력값을 얻어오기 (아이디, 비밀번호(1개), 이름, 전화번호, 주소) -->
+    <%
+    String id = request.getParameter("id");
+    String pass = request.getParameter("pass");
+    String irum = request.getParameter("irum");
+    String phone = request.getParameter("phone");
+    String addr = request.getParameter("addr");
+    
+    //객체 vo에 
+    TempVO vo = new TempVO();
+    vo.setId(id);
+    vo.setPass(pass);
+    vo.setName(irum);
+    vo.setTel(phone);
+    vo.setAddr(addr);
+    
+    TempDAO dao = new TempDAO();
+    dao.insert(vo);
+    %>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 2.얻어온 입력값을 출력 -->
+아이디 : <%= id %> <br/>
+비밀번호 : <%= pass %> <br/>
+이름 : <%= irum %> <br/>
+전화번호 : <%= phone %> <br/>
+주소 : <%= addr %> <br/>
+</body>
+</html>

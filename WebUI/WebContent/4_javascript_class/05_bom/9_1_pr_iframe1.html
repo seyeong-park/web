@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>라디오 창</title>
+<script type="text/javascript">
+window.onload=function(){
+	var sp=opener.window.location.document.text.value;
+	var site=document.frm.site;
+	for (var i = 0; i < site.length; i++) {
+		site[i].onclick=function(){
+		var ifrm=document.getElementById('ifrm');
+		//ifram은 id로 적용
+		sp.ifrm.src=this.value;
+		}
+	}
+}
+</script>
+</head>
+<body>
+
+<form name="frm">
+<input type="radio" name="site" value='http://www.daum.net'>다음<br/>
+<input type="radio" name="site" value='http://www.naver.com'>네이버<br/>
+<input type="radio" name="site" value='http://www.nate.com'>네이트<br/>
+
+<iframe id='ifrm' name='ifrm' width="300" height="300" src="">
+사이트 <input name='result' size='100'/>
+
+</iframe>
+</form>
+
+
+
+
+
+
+</body>
+</html>

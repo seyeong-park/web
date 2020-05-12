@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>새 창</title>
+<script type="text/javascript">
+window.onload=function(){	
+var site=document.getElementsByName('site');
+	for (var i = 0; i < site.length; i++) {
+		site[i].onchange=function(){
+		opener.frm1.text.value=this.value;	
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+
+<form name="frm">
+<input name='text' type='textfield' ><br/>
+
+<input type="radio" name="site" value='가산'> 가산<br>
+<input type="radio" name="site" value='판교'> 판교<br>
+<input type="radio" name="site" value='부평'> 부평<br>
+</form>
+</body>
+</html>

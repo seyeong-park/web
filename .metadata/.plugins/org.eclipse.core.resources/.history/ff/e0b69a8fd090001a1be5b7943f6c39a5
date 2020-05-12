@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+$(function(){
+	//각 클래스에 이벤트 ->each
+	$('.accordion').each(function(){
+		var allDt=$(this).find('dt');
+		var allDd=$(this).find('dd');
+		
+		allDd.hide();
+		allDt.css('cursor','pointer');
+		
+		allDt.click(function(){
+			//클릭하면 펼치기
+			allDt.fadeIn();
+			
+		});
+	});
+	
+	
+	
+	
+	
+	
+	
+});

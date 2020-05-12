@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>00_object.html</title>
+
+<script type="text/javascript">
+//배열:[], 객체:{}-json구조
+
+var obj={name:'홍길숙', age:44};//json구조
+console.log(obj);
+//기존 객체에 추가가 가능
+obj.display=function(){
+	return this.name+"님"+this.age+"세"+"<br/>";
+};
+document.write(obj.display());
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

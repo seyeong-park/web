@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+$(function(){
+	//각 클래스에 이벤트 ->each
+	$('.accordion').each(function(){
+		var allDt=$(this).find('dt');
+		var allDd=$(this).find('dd');
+		
+		allDd.hide();
+	});
+	
+	
+	
+	
+	
+	
+	
+});

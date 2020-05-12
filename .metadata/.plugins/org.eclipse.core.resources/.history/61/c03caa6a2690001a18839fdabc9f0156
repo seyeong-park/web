@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+$(function(){
+	
+	$("#home").hover(function(){
+		$(this).addClass('.img')
+	},function(){
+		
+	});
+});

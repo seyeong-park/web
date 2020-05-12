@@ -1,0 +1,8 @@
+$(function(){
+//	var bio= find('#bio');
+//	var irum=tab.find('#bio h3');
+	
+	//안보이게
+	$('#bio>div').hide();
+	
+});

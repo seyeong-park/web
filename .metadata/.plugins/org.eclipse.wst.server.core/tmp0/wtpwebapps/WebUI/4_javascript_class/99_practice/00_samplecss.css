@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+table{
+	border: 2px solid gray;
+}
+
+td{
+	background-color:gold;
+	width: 100px;
+	height: 60px;
+}
+
+td.first{
+	background-color:powderblue;
+}

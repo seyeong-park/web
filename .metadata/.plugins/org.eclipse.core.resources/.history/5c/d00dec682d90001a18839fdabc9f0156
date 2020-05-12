@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+$('#p').click(function(){
+	$('#txt').css("font-size","+=2");
+	
+//},function(){
+//	$('txt').css("font-size","10px");
+	
+});
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

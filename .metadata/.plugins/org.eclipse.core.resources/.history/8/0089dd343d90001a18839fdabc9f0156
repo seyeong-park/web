@@ -1,0 +1,9 @@
+
+
+$(function(){
+	
+	//option value가져오기
+	var count= $().val();
+	//price value*count=total
+	
+});

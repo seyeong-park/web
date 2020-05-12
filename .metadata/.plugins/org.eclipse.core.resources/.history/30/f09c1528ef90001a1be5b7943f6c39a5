@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+$(function(){
+	
+	$('#signup>form').validate({
+		rules: {
+			name:{required:true}
+		},
+		success : function(label){
+			label.addClass('valid');
+			label.text('성공');
+		},
+		
+	});
+	
+	
+});

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 폼 예제 2</title>
+</head>
+<script type="text/javascript">
+window.onload=function(){
+	document.getElementById('up').onclick=function(){
+		var idx=document.frm.play.selectedIndex;
+		optSel=document.frm.play.options;
+		str=optSel[idx].text;//idx에 해당하는 값 가져오기
+		
+		if(idx>0){//idx가 0보다 클때 까지만 실행
+		optSel[idx].text=optSel[idx-1].text;//-1주소 값 가져오기
+		optSel[idx-1].text=str;//-1값에 str 대입
+		optSel[idx-1].selected=true;
+		}
+
+	}
+	
+	document.getElementById('down').onclick=function(){
+		var idx=document.frm.play.selectedIndex;
+		optSel=document.frm.play.options;
+		str=optSel[idx].text;
+		
+		if(idx<5){
+		optSel[idx].text=optSel[idx+1].text;
+		optSel[idx+1].text=str;
+		optSel[idx+1].selected=true;
+		} else if(idx==6){
+			for (var i = 0; i < optSel.length; i++) {
+				optSel[idx].text=optSel[idx+i].text;
+			}
+			optSel[optSel.length-1].text=str;
+			optSel[optSel.length-1].selected=true;
+		}
+		
+	}
+}
+</script>
+<body>
+
+내가 제일 좋아하는 놀이 순서대로 한다면 <br>
+
+<form name="frm">
+<select name="play" size="8">
+	<option selected> 숨쉬기 </option>
+	<option> 밥먹기 </option>
+	<option> 그냥있기 </option>
+	<option> 잠자기 </option>
+	<option> 술먹기 </option>
+	<option> 멍때리기 </option>
+</select> <br>
+
+<input type="button" id='up'	value="▲"><br><br>
+<input type="button" id='down'	value="▼"><br><br>
+</form>
+
+</body> 
+</html>

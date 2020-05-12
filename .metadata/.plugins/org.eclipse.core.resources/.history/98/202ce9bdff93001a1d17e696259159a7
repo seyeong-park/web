@@ -1,0 +1,10 @@
+package temp;
+
+public class TempVO {
+
+	private String id;
+	private String pass;
+	private String name;
+	private String tel;
+	private String addr;
+}

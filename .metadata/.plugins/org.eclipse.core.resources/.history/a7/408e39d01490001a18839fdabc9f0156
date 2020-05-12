@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+
+$(function(){
+	$('#celebs tbody tr:odd').css({'background':'lightpink',
+		'color':'blue'});
+	
+});

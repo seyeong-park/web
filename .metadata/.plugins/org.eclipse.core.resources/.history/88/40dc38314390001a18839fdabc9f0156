@@ -1,0 +1,35 @@
+
+$(function(){
+	
+
+	//총합
+	$('.menuCount').change(function(){
+//		var price=$('.menu:nth-child(3)')
+		var total=$('.menu:nth-child(3)').val()*$('.menuCount').val*();
+		$('#total').append(total);
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	//주문목록(이름, 수량, 가격)
+//	$('.menuCount').change(function(){
+//		var price= $('.manu:nth-child(3)').val();
+//
+//		$('#listrr:nth-child(1)').append(price);
+//		
+//	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+});

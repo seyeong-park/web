@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> 파라메터 인자</title>
+	<script>
+	//call by value : 함수의 인자가 기본형인 경우
+	//call by reference : 함수의 인자가 참조형인 경우 
+	
+	var pri = 10;
+	function priParam(a){
+		a--;
+		return a;
+	}
+	document.write('기본형인자 1>'+ priParam(pri) +"<br/>");
+	document.write('기본형인자 2>'+ pri +"<br/>");
+	
+	var ref=[1,2,3,4,5];
+	function refParam(ref){
+		ref.pop(); //스택구조(LIFO)로 취급
+					//큐 구조(FIFO)로 취급:shift();
+		return ref;
+	}
+	document.write('참조형인자 1>'+ refParam(ref) +"<br/>");
+	document.write('참조형인자 2>'+ ref +"<br/>");
+	
+	</script>
+</head>
+
+<body>
+
+  
+ </body>
+</html>

@@ -1,0 +1,17 @@
+
+$(function(){
+
+	$('.menuCount').change(function(){
+		var total=$('#price1').value()*$(this);
+		$('#total').append(total);
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+});

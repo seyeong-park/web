@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date 객체</title>
+<script type="text/javascript">	
+ 	
+	var d = new Date('2020/05/03');
+// 	var d = new Date();
+	document.writeln( d  + '<br/>');
+	document.writeln( d.getYear()  + '<br/>');//120X FullYear
+	document.writeln( d.getFullYear()  + '<br/>');
+	document.writeln( d.getMonth()  + '<br/>');
+	document.writeln( d.getDate()  + '<br/>');
+	document.writeln( d.getDay()  + '<br/>'); //일요일0
+	
+	var today = new Date();
+	today.setFullYear(2020);
+	today.setMonth(4); //5월->4
+	today.setDate(1);
+	document.writeln('<hr/>'+today+'<br/>');
+	document.writeln('<hr/>'+today.toLocaleString()+'<br/>');
+	document.writeln('<hr/>'+today.toGMTString()+'<br/>');
+	document.writeln('<hr/>'+today.toDateString()+'<br/>');
+	
+// 	today.setMonth(today.getMonth() -3);//오늘 날짜에서 3달 전으로
+// 	document.writeln('<hr/>'+today.toLocaleString()+'<br/>');
+	
+	//20일 전 날짜 구하기
+// 	today.setDate(today.getDate() -20);
+// 	document.writeln('<hr/>'+today.toLocaleString()+'<br/>');
+	
+	//월에 마지막 날 구하기
+	var today = new Date();//오늘날짜
+	today.setDate(0);//전월의 마지막 날
+	
+	document.writeln('<hr/>'+today.toLocaleString()+'<br/>');
+
+
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>

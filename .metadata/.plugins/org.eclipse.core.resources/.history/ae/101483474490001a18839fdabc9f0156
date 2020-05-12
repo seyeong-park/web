@@ -1,0 +1,29 @@
+
+$(function(){
+
+	//총합
+//	$('.menuCount').change(function(){
+////		var price=$('.menu:nth-child(3)').val();
+////		var count=$('.menuCount').val*();
+//		var total=$('.menu:nth-child(3)').val()*$('.menuCount').val*();
+//		$('#total').append(price*count);
+//	});
+	
+	
+	
+	
+	
+	$('.menuCount').change(function(){
+		var total=$('#price1').val()*$(this);
+		$('#total').append(total);
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+});

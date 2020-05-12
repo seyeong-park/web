@@ -1,0 +1,26 @@
+
+
+$(function(){
+	
+	//option name,value가져오기
+	var price= $('.manu:nth-child(2)').val();
+	var count= $('.menuCount').val();
+	
+	//price value*count=total
+	
+	
+	
+	//text에 가격 넣기
+	$('text').change(function(){
+		$('listtr').append(count);
+	});
+	
+	//목록
+	
+	
+	//$('text').attr(total);
+	
+	
+	
+	
+});

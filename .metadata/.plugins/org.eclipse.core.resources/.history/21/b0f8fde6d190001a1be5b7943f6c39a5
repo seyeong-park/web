@@ -1,0 +1,10 @@
+$(function(){
+	
+	var topDiv = $('.tabSet');
+	var anchors = topDiv.find('.tabs a');
+	var panelDiv = topDiv.find('.panels div.panel');
+	
+	anchors.show();
+	panelsDiv.hide();
+	
+});

@@ -1,0 +1,46 @@
+package temp;
+
+import java.beans.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+public class TempDAO {
+	String url = "jdbc:oracle:thin:@192.168.0.16:1521:orcl";
+	String user = "seyeong";
+	String pass = "1234";
+	
+	public TempDAO() throws ClassNotFoundException {
+	//1. 드라이버 로딩		
+	Class.forName("oracle.jdbc.OracleDriver");
+	user="seyeong";
+	pass="1234";
+	
+	}
+	
+	public void insert(TempVO vo) {
+		
+		try {
+		//2. 연결객체 얻어오기
+		Connection con = DriverManager.getConnection(url,user,pass);
+		//3. sql문장 (insert문)
+		String sql="";
+		//4. 전송객체 얻어오기 (PreparedStatement) + ? 지정
+		Statement st = con.createStatement();
+		PreparedStatement st = con.prepareStatement(sql); //선언된 값 가져오기
+		st.setString(1,id);
+		st.setString(2, pass);
+		st.setString(3, name);
+		//5. 전송(excuteUpdate() 이용)
+		st.executeUpdate();
+		
+		//6. 닫기
+		con.close();
+		st.close();
+		}catch (Exception e){
+			
+			
+		}
+		}
+	
+}

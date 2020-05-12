@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>열려있는 창</title>
+<script type="text/javascript">
+window.onload=function(){
+	var site = document.getElementsByName('site');
+	var wd=window.open('00_sub.html','','width=300 height=300');
+	for (var i = 0; i < site.length; i++) {
+		site[i].onchange=function(){
+		wd.text.value=this.value;
+		}
+	}
+}
+</script>
+</head>
+<body>
+
+<form name='frm'>
+	<input type='radio' name='site' value='네이버'>네이버<br/>
+	<input type='radio' name='site' value='네이트'>네이트<br/>
+	<input type='radio' name='site' value='다음'>다음<br/>
+</form>
+
+</body>
+</html>

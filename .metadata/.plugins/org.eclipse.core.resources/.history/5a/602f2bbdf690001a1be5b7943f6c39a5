@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+
+$(function(){
+	$('a[rel="prettyPopin"]:eq(0)').prettyPopin({
+		width:500
+	});
+	
+});
