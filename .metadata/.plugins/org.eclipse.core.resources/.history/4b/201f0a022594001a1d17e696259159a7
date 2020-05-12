@@ -11,7 +11,8 @@ public class TempDAO {
 	String url = "";
 	String user = "";
 	String pass = "";
-	
+	//ㄴㄴㄴㄴㄴㄴㄴ
+
 	static TempDAO dao;
 
 	// 싱글턴 패턴 , getInstance:싱글턴패턴, 하나의 인스턴스만 가지고 공유해서 쓴다.

@@ -269,3 +269,4 @@
 5월 12, 2020 15:46:42.16 [1416:5300:0512/154642.166:ERROR:device_event_log_impl.cc(162)] [15:46:42.166] Bluetooth: bluetooth_adapter_winrt.cc:1055 Getting Default Adapter failed.
 5월 12, 2020 15:59:37.19 [6244:9424:0512/155937.199:ERROR:browser_switcher_service.cc(238)] XXX Init()
 5월 12, 2020 15:59:42.48 [6244:9424:0512/155942.481:ERROR:device_event_log_impl.cc(162)] [15:59:42.481] Bluetooth: bluetooth_adapter_winrt.cc:1055 Getting Default Adapter failed.
+5월 12, 2020 17:52:25.78 [14816:11700:0512/175225.780:ERROR:browser_switcher_service.cc(238)] XXX Init()
