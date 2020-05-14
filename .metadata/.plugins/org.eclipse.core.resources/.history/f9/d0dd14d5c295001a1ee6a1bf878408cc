@@ -1,0 +1,20 @@
+package joinFormTest;
+
+public class JoinDao {
+	
+	String url = "";
+	String user = "";
+	String pass = "";
+	
+	private static final String dbDriver = "oracle.jdbc.driver.OracleDriver";
+	private static final String dbUrl = "jdbc:oracle:thin:@192.168.0.16:1521:orcl";
+	private static final String dbUser = "seyeong";
+	private static final String dbPass = "1234";
+	
+	public static JoinDao getInstance() {
+		
+	}
+	//입력 db
+	
+
+}

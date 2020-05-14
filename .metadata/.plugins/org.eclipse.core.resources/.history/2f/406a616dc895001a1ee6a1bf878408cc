@@ -1,0 +1,5 @@
+package joinFormTest;
+
+public class JoinException {
+
+}

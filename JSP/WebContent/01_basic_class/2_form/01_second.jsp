@@ -11,9 +11,10 @@
 	vo.setId(user);
 	vo.setPass(pass);
 
-	//2. TempDAO의 login()을 호출
+	//2. TempDAO의 login()을 호출 : TempDAO클래스에 getInstance()호출
 	TempDAO dao = TempDAO.getInstance();
 	boolean result = dao.login(vo);
+	
 	/*
 	if(result == false){
 		response.sendRedirect("01_first.jsp");

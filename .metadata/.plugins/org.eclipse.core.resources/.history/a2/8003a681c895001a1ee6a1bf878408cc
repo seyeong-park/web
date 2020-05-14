@@ -1,0 +1,12 @@
+package joinFormTest;
+
+public class JoinException {
+	
+	public JoinException(){
+  		super();
+  	}
+  	
+  public JoinException(String error){
+  		super( error );
+  	}
+}

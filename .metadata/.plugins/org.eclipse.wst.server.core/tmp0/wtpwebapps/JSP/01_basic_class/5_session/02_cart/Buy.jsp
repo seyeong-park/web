@@ -9,11 +9,17 @@
 
 	request.setCharacterEncoding("utf-8");
 	
-	// 1. 세션에서 지정한 cart 속성값을 얻어와서 ArrayList 변수에 지정
-	// 2. null 이면 리턴 그렇지 않으면 세션값 얻어오기
+	// 1. 세션에서 지정한 cart 속성값을 얻어온다
+	Object obj = session.getAttribute("cart");
+	// 2. null 이면 리턴 그렇지 않으면 세션값을 ArrayList 변수에 지정
+	if(obj==null){
+		return;
+	}else{
+		glist=(ArrayList<Goods>)obj;
+	}
 	// 3. 세션에서 속성을 제거한다
+	session.removeAttribute("cart");
 
-		
 %>		 
  
 <html>		

@@ -296,3 +296,7 @@
 0:0:0:0:0:0:0:1 - - [12/May/2020:16:03:56 +0900] "GET /JSP/01_basic_class/2_form/01_first.jsp HTTP/1.1" 200 605
 0:0:0:0:0:0:0:1 - - [12/May/2020:16:03:59 +0900] "POST /JSP/01_basic_class/2_form/01_second.jsp HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [12/May/2020:16:03:59 +0900] "GET /JSP/01_basic_class/2_form/01_first.jsp HTTP/1.1" 200 605
+127.0.0.1 - - [12/May/2020:16:48:49 +0900] "GET / HTTP/1.1" 404 750
+0:0:0:0:0:0:0:1 - - [12/May/2020:16:48:49 +0900] "GET /JSP/01_basic_class/2_form/01_first.jsp HTTP/1.1" 200 605
+0:0:0:0:0:0:0:1 - - [12/May/2020:17:52:26 +0900] "GET /JSP/01_basic_class/2_form/01_first.jsp HTTP/1.1" 200 605
+0:0:0:0:0:0:0:1 - - [12/May/2020:17:52:26 +0900] "GET /favicon.ico HTTP/1.1" 404 761

@@ -1,0 +1,91 @@
+package joinFormTest;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class JoinDao {
+
+	String url = "";
+	String user = "";
+	String pass = "";
+
+	private static final String dbDriver = "oracle.jdbc.driver.OracleDriver";
+	private static final String dbUrl = "jdbc:oracle:thin:@192.168.0.16:1521:orcl";
+	private static final String dbUser = "seyeong";
+	private static final String dbPass = "1234";
+
+	private static JoinDao joinDao;
+
+	public static JoinDao getInstance() throws JoinException{
+		if (joinDao == null) {
+			joinDao = new JoinDao();
+		}
+		return joinDao;
+	}
+
+	private JoinDao() throws JoinException{
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 입력 db
+	public void insertJoin(Join jo) throws JoinException{
+		Connection con = null;
+		try {
+			// 2
+			con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+
+			// 3
+			String sql = "INSERT INTO join(ID,NAME,PASS,TEL,ADDR) VALUES(?,?,?,?,?)";
+
+			// 4
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, jo.getId());
+			st.setString(2, jo.getName());
+			st.setString(3, jo.getPass());
+			st.setString(4, jo.getTel());
+			st.setString(5, jo.getAddr());
+
+			// 5
+			st.executeUpdate();// int result *****
+			// 6
+			JdbcUtil.close(st);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(con);
+		}
+	}
+	//false=중복x , true=중복o
+	public boolean isDuplicationId(String id) throws JoinException{
+		boolean no = false;
+		Connection con = null;
+		try {
+			con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+		
+		String sql = "SELECT * FROM join WHERE id=? ";
+		//전송객체
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, id);
+		//전송
+		st.executeQuery();//int result??
+		
+		//닫기
+		JdbcUtil.close(con);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			
+		}
+		return no;
+		
+	}
+
+}
