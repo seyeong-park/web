@@ -21,3 +21,14 @@
 1589452065950	Copy compilation units
 1589454167720	Delete element
 1589503318358	Move folder
+1589536750544	Copy file
+1589536762909	Copy file
+1589536928596	Copy package
+1589536948883	Rename package 'self.model.copy'
+1589536961526	Copy package
+1589536984930	Move file
+1589537052456	Rename type 'BoardRec'
+1589537198307	Rename type 'BoardDao'
+1589537226586	Rename compilation unit 'BoardException.java'
+1589537278809	Rename package 'self.model'
+1589537287513	Rename package 'self.service'
