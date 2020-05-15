@@ -1,9 +1,0 @@
-/**
- * 
- */
-
-$(function(){
-	$('#selebs tbody tr:odd').css({'background':'lightpink',
-		'color':'powderblue'});
-	
-});

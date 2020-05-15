@@ -4,7 +4,7 @@
    
 <% 
 //id받아오기
-String id = request.getParameter("id");
+String id = request.getParameter("UserId");
 //싱글턴패턴
 JoinDao dao = JoinDao.getInstance();
 %>    
