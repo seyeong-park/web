@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="CommentMapper">
+ 
+<!--  <select id="selectComment" resultType="mybatis.guest.model.Comment"> -->
+<!-- SELECT comment_no commentNo, -->
+<!-- 		user_id userId, -->
+<!-- 		comment_content commentContent, -->
+<!-- 		reg_date regDate -->
+<!-- FROM comment_tab -->
+
+<!--  </select> -->
+<!-- 						resultType= "mybatis.guest.model.Comment" comment로 별칭 설정-->
+ <select id="selectComment" resultType="comment">
+SELECT * FROM comment_tab
+ </select>
+ 
+ <insert id="insertComment" parameterType="comment">
+ INSERT INTO comment_tab (comment_no,user_id,comment_content,reg_date) 
+ VALUES(seq_comment.nextval,#{userId},#{commentContent},sysdate)
+ </insert>
+ 
+ <select id="selectCommentByPK" parameterType="hashmap" resultType="comment">
+	 SELECT * FROM comment_tab
+	 
+	 <where>
+	 <if test="commentNo != null">
+	 comment_no = #{commentNo}
+	 </if>
+	 </where>
+	 
+ </select>
+ 
+ <delete id="deleteComment" parameterType="hashmap">
+	 DELETE FROM comment_tab
+	 <where>
+	 	<if test="commentNo != null">
+	 	comment_no = #{commentNo}
+	 	</if>
+	 </where>
+ </delete>
+ 
+ <update id="updateComment" parameterType="comment">
+  UPDATE comment_tab SET USER_ID=#{userId}, COMMENT_CONTENT=#{commentContent}
+  
+  <where>
+	 	<if test="commentNo != null">
+	 	comment_no = #{commentNo}
+	 	</if>
+	 </where>
+ </update>
+
+</mapper>

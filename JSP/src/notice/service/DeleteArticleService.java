@@ -1,7 +1,7 @@
 package notice.service;
 
 import board.model.*;
-
+ 
 public class DeleteArticleService {
 	
 	private static DeleteArticleService instance;

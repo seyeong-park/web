@@ -1,0 +1,128 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="board.model.*, board.service.*" %>
+<%@ page import="java.util.List" %>
+<%@ page import = "java.text.*" %>
+<%@ page import='java.util.Date' %>
+
+<%  //웹브라우저가 게시글 목록을 캐싱할 경우 새로운 글이 추가되더라도 새글이 목록에 안 보일 수 있기 때문에 설정
+	response.setHeader("Pragma","No-cache");		// HTTP 1.0 version
+	response.setHeader("Cache-Control","no-cache");	// HTTP 1.1 version
+	response.setHeader("Cache-Control","no-store"); // 일부 파이어폭스 버스 관련
+	response.setDateHeader("Expires", 1L);			// 현재 시간 이전으로 만료일을 지정함으로써 응답결과가 캐쉬되지 않도록 설정
+%>
+
+<%
+int countPerPage = 2;
+// Service에 getArticleList()함수를 호출하여 전체 메세지 레코드 검색 
+ List <BoardRec> mList =  null; 
+//페이지 번호 받아서 인자값 넣기
+String pNum = "1";
+if(request.getParameter("page")!=null){
+	pNum = request.getParameter("page");
+}
+ mList = BoardService.getInstance().selectBoard(pNum);
+ int totalCount = BoardService.getInstance().getTotalCount();//페이지 숫자
+ if(mList==null){
+	 mList = new ArrayList<BoardRec>();
+ }
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> 게시글 목록 </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+<script type="text/javascript">
+	$(function(){
+		$("tr").not("tr:first-child").not("tr:last-child").hover(function(){
+			$(this).css("background-color","skyblue");
+		},function(){
+			$(this).css("background-color","WHITE");
+		})
+		$(".article").css({
+			'cursor':'pointer',
+		});
+		$("tr").click(function(){
+			if($(this).is('[articleId]')){
+				location.href='BoardView.jsp?id='+$(this).attr("articleId");
+			}
+		});
+		$(".new").css({
+			'width':'30',
+			'height':'20'
+		});
+		$(".nowPage").css({
+			'font-weight':'bold',
+			'font-size':'large'
+		})
+	});
+</script>
+</head>
+
+<BODY>
+
+	<h3> 게시판 목록 </h3>
+	
+	<table border="1" bordercolor="darkblue">
+	<tr>
+		<td> 글번호 </td>
+		<td> 제 목 </td>
+		<td> 작성자 </td>
+		<td> 작성일 </td>
+		<td> 조회수 </td>
+	</tr>
+	
+	<% Calendar c = Calendar.getInstance(); %>
+	<%SimpleDateFormat dfhm  = new SimpleDateFormat("yyyy-MM-dd"); %>
+	<% if( mList.isEmpty() ) { %>
+		<tr><td colspan="5"> 등록된 게시물이 없습니다. </td></tr>
+	<% } else { %>
+		<% for(BoardRec rec : mList){%>
+		<%  Date day1 = dfhm.parse(rec.getPostingDate().substring(0,10));
+			Date day2 = dfhm.parse(dfhm.format(c.getTime()));
+			Long diff = (day2.getTime() - day1.getTime())/1000/60/60/24;%>
+		<tr class="article" articleId='<%=rec.getArticleId()%>'>
+			<%if(diff>1){ %>
+			<td><%=rec.getArticleId() %></td>
+			<%}else{ %>
+			<td><%=rec.getArticleId() %><img class='new' src='imgs/new.png'/></td>
+			<%} %>
+			<td>
+			<%for(int i = 0;i<rec.getLevel()-1;i++){ %>
+				&nbsp;
+			<%}//end for %>
+			<%if(rec.getLevel()!=0){ %>
+				<img src='imgs/board_re.gif'/>
+			<%} %>
+			<%=rec.getTitle() %></td>
+			<td><%=rec.getWriterName() %></td>		
+			<td><%=rec.getPostingDate() %></td>
+			<td><%=rec.getReadCount() %></td>
+		</tr>
+		
+	<%	}//end for %>
+	<% } // end else %>
+	
+		<tr>
+			<td colspan="2">
+				<a href="BoardInputForm.jsp">글쓰기</a>
+			</td>
+			
+			<td colspan="3">
+			<%int pageNum = Integer.parseInt(pNum); %>
+			<%for(int i = pageNum-countPerPage>=1?pageNum-countPerPage:1 ;i<=pageNum+countPerPage&& i <= totalCount;i++){ //5페이지 넘어가면 자르기%>
+				<%if(i==pageNum){ %>
+				<a class='nowPage' href="BoardList.jsp?page=<%=i %>">[<%=i %>]</a>
+				<%}else{//end if %>
+				<a href="BoardList.jsp?page=<%=i %>">[<%=i %>]</a>
+				<%}//end else %>
+			<%}//end for %>
+			</td>
+		</tr>
+	</table>
+</BODY>
+</HTML>

@@ -1,0 +1,131 @@
+package board.session;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import board.model.BoardRec;
+import mybatis.guest.model.Comment;
+
+public class BoardRepository {
+private SqlSessionFactory getSqlSessionFactory() {
+		
+		InputStream inputStream;
+		try {
+			inputStream = Resources.getResourceAsStream("mybatis-config.xml");//설정파일을 읽으면서 매퍼도 같이 읽음
+		} catch (IOException e) {
+			throw new IllegalArgumentException(e);
+		}
+		SqlSessionFactory sessFactory =  new SqlSessionFactoryBuilder().build(inputStream);
+		return sessFactory;
+	}
+	//연결 객체 - JDBC : connection
+	//		- Mybatis: sqlSession
+	public List<BoardRec> selectBoard(int startRow,int endRow) { //JDBC 모델개념
+		SqlSession sqlSess = getSqlSessionFactory().openSession();//open인 이유 : 이미 mybatis가 열어놓는다는 뜻
+		try{
+			HashMap map = new HashMap();
+			map.put("startRow",startRow);
+			map.put("endRow",endRow);
+			List<BoardRec> list = sqlSess.selectList("BoardMapper.selectBoard",map);
+		return list;
+		}finally{sqlSess.close();} //연결을 끊는게 아니라 세션 반납
+	}
+	public Integer insertBoard(BoardRec c) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		int result = 0;
+		int currval = 0;
+		try {
+			result = sqlSess.insert("BoardMapper.insertBoard",c);
+			
+			if(result >0) sqlSess.commit();
+			else sqlSess.rollback();
+			currval = sqlSess.selectOne("BoardMapper.selectCurrVal");
+		}finally {
+			sqlSess.close();
+		}
+		return currval;
+	}
+	public BoardRec selectBoardByPrimaryKey(Long articleId) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try{
+			HashMap map = new HashMap();
+			map.put("articleId",articleId);
+			BoardRec rec = sqlSess.selectOne("BoardMapper.selectBoardByPrimaryKey",map);
+//			Comment comment = sqlSess.selectOne("CommentMapper.selectCommentByPrimaryKey",commentNo);
+			return rec;
+		}finally{sqlSess.close();}
+	}
+	public Integer updateBoard(BoardRec c) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		int result = 0;
+		try {
+			result = sqlSess.update("BoardMapper.updateBoard",c);
+			if(result >0) sqlSess.commit();
+			else sqlSess.rollback();
+		}finally {
+			sqlSess.close();
+		}
+		return result;
+	}
+	public Integer deleteBoard(Long articleId,String password) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try{
+			HashMap map = new HashMap();
+			map.put("articleId",articleId);
+			map.put("password",password);
+			int result = sqlSess.delete("BoardMapper.deleteBoard",map);
+			if(result >0) sqlSess.commit();
+			else sqlSess.rollback();
+			return result;
+		}finally{sqlSess.close();}
+	}
+	public int selectGroudId() {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try{
+			int groupId = sqlSess.selectOne("BoardMapper.selectGroudId");
+//			Comment comment = sqlSess.selectOne("CommentMapper.selectCommentByPrimaryKey",commentNo);
+			return groupId;
+		}finally{sqlSess.close();}
+	}
+	public int getTotalCount() {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try{
+			int totalCount = sqlSess.selectOne("BoardMapper.selectTotalCount");
+//			Comment comment = sqlSess.selectOne("CommentMapper.selectCommentByPrimaryKey",commentNo);
+			return totalCount;
+		}finally{sqlSess.close();}
+	}
+	public int increaseReadCount(Long articleId) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		int result = 0;
+		try {
+			HashMap map = new HashMap();
+			map.put("articleId",articleId);
+			result = sqlSess.update("BoardMapper.increaseReadCount",map);
+			if(result >0) sqlSess.commit();
+			else sqlSess.rollback();
+		}finally {
+			sqlSess.close();
+		}
+		return result;
+		
+	}
+	public String selectLastSequenceNumber(String maxSeqNum, String minSeqNum) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try{
+			HashMap map = new HashMap();
+			map.put("maxSeqNum", maxSeqNum);
+			map.put("minSeqNum", minSeqNum);
+			String minSeq = sqlSess.selectOne("BoardMapper.selectLastSequenceNumber",map);
+//			Comment comment = sqlSess.selectOne("CommentMapper.selectCommentByPrimaryKey",commentNo);
+			return minSeq;
+		}finally{sqlSess.close();}
+	}
+}

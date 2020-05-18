@@ -1,0 +1,41 @@
+package mybatis.board.service;
+
+public class CommentService {
+	
+	private static CommentService service;
+	
+	//싱글턴
+	public static CommentService getInstance() {
+		
+	}
+	
+	//생성자 지정
+	private CommentService() {
+		
+	}
+	
+	//목록보기
+	public void selectComment() {
+		
+	}
+	
+	//PK
+	public void selectCommentByPK() {
+		
+	}
+	
+	//입력
+	public void insertComment() {
+		
+	}
+	
+	//수정
+	public void modifyComment() {
+		
+	}
+	
+	//삭제
+	public void deleteComment() {
+		
+	}
+}

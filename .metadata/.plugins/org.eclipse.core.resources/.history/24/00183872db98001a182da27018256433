@@ -1,0 +1,95 @@
+package mybatis.guest.session;
+
+import java.io.*;
+import java.util.*;
+
+import mybatis.guest.model.Comment;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.*;
+
+public class CommentRepository {
+	// private final String namespace = "CommentMapper";
+
+	private SqlSessionFactory getSqlSessionFactory() {
+
+		InputStream inputStream;
+		try {
+			inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+		} catch (IOException e) {
+			throw new IllegalArgumentException(e);
+		}
+		SqlSessionFactory sessFactory = new SqlSessionFactoryBuilder().build(inputStream);
+		return sessFactory;
+	}
+
+	// 연결객체 - JDBC : connection
+	// - Mybatis : SqlSession
+
+	public List<Comment> selectComment() {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try {
+			List<Comment> list = sqlSess.selectList("CommentMapper.selectComment");
+			return list;
+		} finally {
+			sqlSess.close(); // 연결 끊는 것이 아니라 반납하는 개념
+		}
+	}
+
+	// 입력
+	public Integer insertComment(Comment c) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try {
+			int result = sqlSess.insert("CommentMapper.insertComment", c);
+			if (result > 0)
+				sqlSess.commit();// 1이면 성공->commit
+			else
+				sqlSess.rollback();
+			return result;
+		} finally {
+			sqlSess.close();
+		}
+	}
+
+	public Comment selectCommentByPK(long commentNo) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try {
+			HashMap map = new HashMap();
+			map.put("commentNo", commentNo);
+			Comment c = sqlSess.selectOne("CommentMapper.selectCommentByPK", map);
+			return c;
+		} finally {
+			sqlSess.close();
+		}
+	}
+
+	// 삭제
+	public Integer deleteComment(long cn) {
+
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try {
+			HashMap map = new HashMap();
+			map.put("commentNo", cn);
+			int result = sqlSess.delete("CommentMapper.deleteComment", map);
+			if (result > 0)
+				sqlSess.commit();
+			else
+				sqlSess.rollback();
+			return result;
+		} finally {
+			sqlSess.close();
+		}
+	}
+	
+	//수정
+	public Integer updateComment(long cno) {
+		SqlSession sqlSess = getSqlSessionFactory().openSession();
+		try {
+			int result = sqlSess.update("CommentMapper.updateComment",cno);
+			return result;
+		}finally {
+			sqlSess.close();
+		}
+	}
+
+}

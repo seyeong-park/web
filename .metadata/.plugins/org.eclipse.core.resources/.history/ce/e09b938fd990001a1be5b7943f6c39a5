@@ -1,8 +1,0 @@
-$(function(){
-	var bio= find('#bio');
-	var irum=tab.find('#bio h3');
-	
-	//이름 클릭하면 이벤트 실행
-	$('#bio').click(function(){});
-	
-});

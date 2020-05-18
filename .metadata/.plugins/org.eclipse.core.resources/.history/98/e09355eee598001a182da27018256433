@@ -1,0 +1,8 @@
+package mybatis.board.service;
+
+public class CommentService {
+	//싱글턴
+	//입력
+	//수정
+	//삭제
+}

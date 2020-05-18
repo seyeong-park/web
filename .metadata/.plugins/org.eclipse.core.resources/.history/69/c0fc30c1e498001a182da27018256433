@@ -1,0 +1,5 @@
+package mybatis.board.model;
+
+public class Comment {
+
+}

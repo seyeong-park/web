@@ -1,0 +1,5 @@
+package mybatis.board.session;
+
+public class CommentRepository {
+
+}

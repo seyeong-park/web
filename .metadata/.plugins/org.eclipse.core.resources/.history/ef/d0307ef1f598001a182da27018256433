@@ -1,0 +1,41 @@
+package board.service;
+
+import java.util.List;
+
+import board.model.BoardDao;
+import board.model.BoardException;
+import board.model.BoardRec;
+
+public class ListArticleService {
+	private static ListArticleService instance;
+	int totalRecCount ;
+	int pageTotalCount;
+	int countPerPage = 5;
+	public static ListArticleService getInstance()  throws BoardException{
+		if( instance == null )
+		{
+			instance = new ListArticleService();
+		}
+		return instance;
+	}
+	
+	public List <BoardRec> getArticleList(String pNum) throws BoardException
+	{
+		int pageNum = 1;
+		if( pNum!=null) pageNum = Integer.parseInt(pNum);
+		int startRow = (pageNum-1)*countPerPage+1;
+		int endRow = (pageNum)*countPerPage;
+		 List <BoardRec> mList = BoardDao.getInstance().selectList(startRow,endRow);			
+		return mList;
+	}
+	public int getTotalCount() throws BoardException{
+		BoardDao dao = BoardDao.getInstance();
+		totalRecCount = dao.getTotalCount();
+		pageTotalCount = totalRecCount/countPerPage;
+		System.out.println(totalRecCount);
+		if(totalRecCount%countPerPage!=0) pageTotalCount++;
+		
+		return pageTotalCount;
+	}
+		
+}

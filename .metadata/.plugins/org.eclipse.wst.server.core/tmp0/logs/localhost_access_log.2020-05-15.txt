@@ -461,3 +461,5 @@
 0:0:0:0:0:0:0:1 - - [15/May/2020:19:00:28 +0900] "GET /JSP/02_beans_class/04_board_class/BoardSave.jsp HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [15/May/2020:19:00:28 +0900] "GET /JSP/02_beans_class/04_board_class/BoardView.jsp?articleId=28 HTTP/1.1" 200 824
 0:0:0:0:0:0:0:1 - - [15/May/2020:19:00:41 +0900] "GET /JSP/02_beans_class/04_board_class/BoardView.jsp HTTP/1.1" 200 815
+127.0.0.1 - - [15/May/2020:19:29:28 +0900] "GET / HTTP/1.1" 404 750
+0:0:0:0:0:0:0:1 - - [15/May/2020:19:29:29 +0900] "GET /JSP/02_beans_class/04_board_class/BoardList.jsp HTTP/1.1" 200 2652

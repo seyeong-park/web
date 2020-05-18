@@ -1,0 +1,48 @@
+package mybatis.board.service;
+
+import java.util.*;
+
+import mybatis.board.model.Comment;
+import mybatis.board.session.CommentRepository;
+
+public class CommentService {
+	
+	private static CommentService service;
+	//싱글턴
+	public static CommentService getInstance() {
+		if(service==null) service = new CommentService();
+		return service;
+	}
+	
+	//생성자 지정
+	private CommentService() {}
+	
+	CommentRepository repo = new CommentRepository();
+	
+	//목록보기
+	public List<Comment> selectComment() {
+		return repo.selectComment();
+		
+	}
+	
+	//PK
+	public Comment selectCommentByPK(long articleId) {
+		return repo.selectCommentByPK(articleId);
+	}
+	
+	//입력
+	public Integer insertComment(Comment c) {
+		return repo.insertComment(c);
+	}
+	
+	//수정
+	public Integer modifyComment(Comment c) {
+		return repo.modifyComment(c);
+	}
+	
+	//삭제
+	public Integer deleteComment(String id) {
+		long cn =(Long.parseLong(id));
+		return repo.deleteComment(cn);
+	}
+}

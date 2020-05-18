@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="CommentMapper"> 
+<select id="selectComment" resultType="comment">
+SELECT * FROM article
+ </select>
+ 
+ <insert id="insertComment" parameterType="comment">
+ INSERT INTO article (ARTICLE_ID,GROUP_ID,SEQUENCE_NO, POSTING_DATE,READ_COUNT,WRITER_NAME,PASSWORD,TITLE,CONTENT) 
+ VALUES(seq_article_id_article.nextval,#{groupId},#{sequenceNo},sysdate,0,#{writerName},#{password},#{title},#{content})
+ </insert>
+ 
+
+</mapper>

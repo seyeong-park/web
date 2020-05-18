@@ -1,0 +1,6 @@
+# dbconnect.properties
+
+driver = oracle.jdbc.driver.OracleDriver
+url = jdbc:oracle:thin:@192.168.0.16:1521:orcl
+username = seyeong
+password = 1234
