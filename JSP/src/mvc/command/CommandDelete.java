@@ -1,0 +1,33 @@
+package mvc.command;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import mvc.model.MessageDao;
+import mvc.model.MessageException;
+
+public class CommandDelete implements Command {
+	private String next;
+
+	public CommandDelete( String _next ){
+		next = _next;
+	}
+	
+	public String execute(HttpServletRequest request, HttpServletResponse response  ) throws CommandException {
+
+		try{
+				
+			int messageId = Integer.parseInt(request.getParameter("messageId"));
+			String password = request.getParameter("password");
+			
+			int resultCnt = MessageDao.getInstance().delete(messageId, password);
+			
+			request.setAttribute("result", resultCnt);
+		}catch( MessageException ex ){
+			throw new CommandException("CommandDelete.java < 삭제시 > " + ex.toString() ); 
+		}
+		
+		return next;			
+	}
+
+}

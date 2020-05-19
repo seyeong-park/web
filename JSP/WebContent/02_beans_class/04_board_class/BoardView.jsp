@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="board.service.*, board.model.*" %>
-<% 
+<% String projectName= "/JSP";
 	// 1. 해당 게시물의 게시글번호값을 얻어온다
 	String id=request.getParameter("articleId");
 	
 	// 2. Service에 getArticleById() 호출하여 그 게시글번호를 갖는 레코드를 검색한다.
 	BoardRec rec = ViewArticleService.getInstance().getArticleById(id);
 %>    
-	<jsp:useBean id="board" class='board.model.BoardRec'>
+	<jsp:useBean id="board" class='mvc.model.board.BoardRec'>
 		<jsp:setProperty name='board' property='*' />
 	</jsp:useBean>
 	
@@ -42,9 +42,8 @@
 	<tr>
 		<td colspan="2">
 			<a href='BoardList.jsp' >목록보기</a>
-			<a href='BoardReplyForm.jsp?articleId=<%=id %>' >답변하기</a>
-			<a href='BoardModifyForm.jsp?articleId=<%=id %>' >수정하기</a>
-			<a href='BoardDeleteForm.jsp?articleId=<%=id %>' >삭제하기</a>	
+			<a href='<%= projectName %>/BoardControl?cmd=' >수정하기</a>
+			<a href='<%= projectName %>/BoardControl?cmd=delete-form' >삭제하기</a>	
 		</td>
 	</tr>
 	</table>

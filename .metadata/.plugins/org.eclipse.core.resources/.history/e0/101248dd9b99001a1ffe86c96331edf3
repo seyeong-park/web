@@ -1,0 +1,33 @@
+package mvc.command;
+
+import java.util.List;
+
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+public class CommandInput implements Command {
+	private String next;
+
+	public CommandInput( String _next ){
+		next = _next;
+	}
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response  ) throws CommandException {
+		try{
+
+			BoardRec msg = new BoardRec();
+			msg.setGuestName( request.getParameter("guestName"));
+			msg.setPassword(request.getParameter("password"));
+			msg.setMessage( request.getParameter("message"));
+			
+			BoardRecDao.getInstance().insert(msg);
+			
+		}catch( MessageException ex ){
+			throw new CommandException("CommandInput.java < 입력시 > " + ex.toString() ); 
+		}
+		return next;
+	}
+
+}

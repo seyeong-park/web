@@ -8,6 +8,42 @@
   
     
   <servlet>
+  	<servlet-name>SimpleControl</servlet-name>
+  	<servlet-class>mvc.simple.SimpleControl2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+	  <servlet-name>SimpleControl</servlet-name>
+	  <url-pattern>/SimpleControl</url-pattern>
+	  <url-pattern>/sc</url-pattern>
+	  <url-pattern>*.psy</url-pattern>
+	  <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>GuestControl</servlet-name>
+  	<servlet-class>mvc.control.GuestControl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+	  <servlet-name>GuestControl</servlet-name>
+	  <url-pattern>/guest</url-pattern>
+	  <url-pattern>/GuestControl</url-pattern>
+	  <url-pattern>*.guest</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>BoardControl</servlet-name>
+  	<servlet-class>mvc.control.board.BoardControl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+	  <servlet-name>BoardControl</servlet-name>
+	  <url-pattern>/BoardControl</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
   	<servlet-name>HelloServlet</servlet-name>
   	<servlet-class>HelloServlet</servlet-class>
   </servlet>

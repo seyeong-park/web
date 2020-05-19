@@ -1,0 +1,37 @@
+package mvc.command;
+
+import java.util.List;
+
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import mvc.model.MessageException;
+import mvc.model.board.*;
+
+
+public class CommandInput implements Command {
+	private String next;
+
+	public CommandInput( String _next ){
+		next = _next;
+	}
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response  ) throws CommandException {
+		try{
+
+			BoardRec msg = new BoardRec();//작성자, 제목, 내용, 패스워드
+			msg.setWriterName(request.getParameter("writerName"));
+			msg.setTitle(request.getParameter("title"));
+			msg.setContent( request.getParameter("content"));
+			msg.setPassword(request.getParameter("password"));
+			
+			BoardDao.getInstance().insert(msg);
+			
+		}catch( MessageException ex ){
+			throw new CommandException("CommandInput.java < 입력시 > " + ex.toString() ); 
+		}
+		return next;
+	}
+
+}

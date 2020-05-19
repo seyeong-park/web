@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,7 @@
 	$(function(){
 		$('input[value="작성"]').click(function(){
 			var frm= $('form[name="frm"]');
-			frm.attr('action','BoardSave.jsp');
+			frm.attr('action','Board.jsp');
 			//유효성 검사
 			
 			frm.submit();
@@ -30,7 +30,7 @@
 	내  용 : <textarea rows='10' cols='40' name='content'></textarea><br/><br/>
 	패스워드(수정/삭제시 필요) :
 			 <input type='password' name='password'><br/><br/>
-	<input type='button' value='작성'>
+	<input type='button' value='작성' >
 	<input type='reset' value='취소'>
 	</form>
 

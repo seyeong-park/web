@@ -284,3 +284,9 @@
 127.0.0.1 - - [18/May/2020:19:52:37 +0900] "GET / HTTP/1.1" 404 750
 0:0:0:0:0:0:0:1 - - [18/May/2020:19:52:39 +0900] "GET /JSP/04_board_class2/BoardList.jsp HTTP/1.1" 500 2306
 0:0:0:0:0:0:0:1 - - [18/May/2020:19:52:39 +0900] "GET /favicon.ico HTTP/1.1" 404 761
+127.0.0.1 - - [18/May/2020:20:11:01 +0900] "GET / HTTP/1.1" 404 750
+0:0:0:0:0:0:0:1 - - [18/May/2020:20:11:02 +0900] "GET /JSP/04_board_class2/BoardList.jsp HTTP/1.1" 500 2306
+0:0:0:0:0:0:0:1 - - [18/May/2020:20:11:02 +0900] "GET /favicon.ico HTTP/1.1" 404 761
+0:0:0:0:0:0:0:1 - - [18/May/2020:20:14:52 +0900] "GET /JSP/04_board_class2/BoardInputForm.jsp HTTP/1.1" 500 2208
+0:0:0:0:0:0:0:1 - - [18/May/2020:20:16:35 +0900] "GET /JSP/04_board_class2/BoardInputForm.jsp HTTP/1.1" 500 2644
+0:0:0:0:0:0:0:1 - - [18/May/2020:20:16:35 +0900] "GET /favicon.ico HTTP/1.1" 404 761
