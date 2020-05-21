@@ -15,4 +15,10 @@
 <fullyQualifiedTypeName name="mybatis.board.model.Comment"/>
 <fullyQualifiedTypeName name="mybatis.board.session.CommentRepository"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="mvc.model.board.BoardRec"/>
+<fullyQualifiedTypeName name="mvc.model.MessageException"/>
+<fullyQualifiedTypeName name="mvc.model.board.BoardException"/>
+<fullyQualifiedTypeName name="mvc.model.board.BoardDao"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="mvc.command.board.CommandView"/>
 </qualifiedTypeNameHistroy>

@@ -468,3 +468,15 @@
 0:0:0:0:0:0:0:1 - - [19/May/2020:17:47:46 +0900] "GET /JSP/BoardControl?cmd=input-page HTTP/1.1" 200 2541
 0:0:0:0:0:0:0:1 - - [19/May/2020:17:47:46 +0900] "GET /JSP/imgs/board_re.gif HTTP/1.1" 404 779
 0:0:0:0:0:0:0:1 - - [19/May/2020:17:47:48 +0900] "GET /JSP/BoardControl?cmd=list-page HTTP/1.1" 200 721
+127.0.0.1 - - [19/May/2020:18:24:04 +0900] "GET / HTTP/1.1" 404 750
+0:0:0:0:0:0:0:1 - - [19/May/2020:18:24:05 +0900] "GET /JSP/04_board_class_cmd/main.jsp HTTP/1.1" 200 254
+0:0:0:0:0:0:0:1 - - [19/May/2020:18:24:07 +0900] "GET /JSP/BoardControl?cmd=input-page HTTP/1.1" 200 2541
+0:0:0:0:0:0:0:1 - - [19/May/2020:18:24:07 +0900] "GET /JSP/imgs/board_re.gif HTTP/1.1" 404 779
+0:0:0:0:0:0:0:1 - - [19/May/2020:18:24:08 +0900] "GET /JSP/BoardControl?cmd=list-page HTTP/1.1" 500 1661
+127.0.0.1 - - [19/May/2020:18:38:39 +0900] "GET / HTTP/1.1" 404 750
+0:0:0:0:0:0:0:1 - - [19/May/2020:18:38:42 +0900] "GET /JSP/04_board_class_cmd/main.jsp HTTP/1.1" 200 254
+0:0:0:0:0:0:0:1 - - [19/May/2020:18:38:42 +0900] "GET /favicon.ico HTTP/1.1" 404 761
+0:0:0:0:0:0:0:1 - - [19/May/2020:18:38:44 +0900] "GET /JSP/BoardControl?cmd=input-page HTTP/1.1" 200 2541
+0:0:0:0:0:0:0:1 - - [19/May/2020:18:38:44 +0900] "GET /JSP/imgs/board_re.gif HTTP/1.1" 404 779
+0:0:0:0:0:0:0:1 - - [19/May/2020:18:38:45 +0900] "GET /JSP/BoardControl?cmd=list-page HTTP/1.1" 500 1661
+0:0:0:0:0:0:0:1 - - [19/May/2020:18:38:47 +0900] "GET /JSP/BoardControl?cmd=input-form HTTP/1.1" 200 978

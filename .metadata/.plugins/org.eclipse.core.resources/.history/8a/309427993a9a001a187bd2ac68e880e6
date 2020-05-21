@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 변수선언 -->
+<c:set var='gender' value='male'/>
+
+	<c:if test="${gender eq 'male'}">남자</c:if>
+	<c:if test="${gender eq 'female'}">여자</c:if>
+
+<c:set var='age'>24</c:set>
+
+	<c:if test="${age ge 20}">성인입니다.</c:if>
+</body>
+</html>
